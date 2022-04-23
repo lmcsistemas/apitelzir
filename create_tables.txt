@@ -1,0 +1,65 @@
+
+
+createdb telefonia
+
+
+create sequence seq_tariff;
+
+create table tariffs (
+    tariff integer NOT NULL DEFAULT nextval('seq_tariff'),
+    origin varchar(2),
+    destination varchar(2),
+    price_minute double precision,
+    created_at timestamp DEFAULT now(),
+    updated_at  timestamp DEFAULT now()
+);
+
+create sequence seq_plan;
+
+create table plans(
+    plan integer NOT NULL DEFAULT nextval('seq_plan'),
+    name varchar(50),
+    description text,
+    minutes double precision,
+    extra double precision,
+    created_at timestamp DEFAULT now(),
+    updated_at  timestamp DEFAULT now()
+);
+
+
+
+
+Inserts 
+
+insert into tariffs (origin, destination, price_minute) values ('11', '16', '1.90');
+insert into tariffs (origin, destination, price_minute) values ('16', '11', '2.90');
+insert into tariffs (origin, destination, price_minute) values ('11', '17', '1.70');
+insert into tariffs (origin, destination, price_minute) values ('17', '11', '2,70');
+insert into tariffs (origin, destination, price_minute) values ('11', '18', '0.90');
+insert into tariffs (origin, destination, price_minute) values ('18', '11', '1.90');
+
+
+Com o plano FaleMais 30 da Telzir você conta com 30 minutos de fanquila para fazer gratuitamente com os DDD de sua escolha, após os minutos da franquila os valores são cobrados de acordo com a nossa tabelha de tarifas, mas um percentual de acrescimo.
+Aproveite, FaleMais com a Telzir. 
+
+
+insert into plans (name, description, minutes, extra) values ('FaleMais 30', 'Com o plano FaleMais 30 da Telzir você conta com 30 minutos de fanquila para fazer gratuitamente com os DDD de sua escolha, após os minutos da franquila os valores são cobrados de acordo com a nossa tabelha de tarifas, mas um percentual de acrescimo.
+Aproveite, FaleMais com a Telzir.', '30', '10');
+
+
+insert into plans (name, description, minutes, extra) values ('FaleMais 60', 'Com o plano FaleMais 60 da Telzir você conta com 60 minutos de fanquila para fazer gratuitamente com os DDD de sua escolha, após os minutos da franquila os valores são cobrados de acordo com a nossa tabelha de tarifas, mas um percentual de acrescimo.
+Aproveite, FaleMais com a Telzir.', '60', '10');
+
+insert into plans (name, description, minutes, extra) values ('FaleMais 120', 'Com o plano FaleMais 120 da Telzir você conta com 120 minutos de fanquila para fazer gratuitamente com os DDD de sua escolha, após os minutos da franquila os valores são cobrados de acordo com a nossa tabelha de tarifas, mas um percentual de acrescimo.
+Aproveite, FaleMais com a Telzir.', '120', '10');
+
+Com o plano FaleMais 30 da Telzir você conta com 30 minutos de fanquia para ligações gratuitamente com os DDD de sua escolha.
+
+
+
+
+update plans set description = 'Com o plano FaleMais 120 da Telzir você conta com 120 minutos de fanquia para ligações gratuitamente com os DDD de sua escolha.' where plan = 3; 
+
+
+
+
